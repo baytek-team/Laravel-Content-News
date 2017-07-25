@@ -32,25 +32,13 @@ class NewsController extends ContentController
      * @var [type]
      */
     protected $views = [
-        'index' => 'index',
-        'create' => 'create',
-        'edit' => 'edit',
-        'show' => 'show',
+        'index' => 'news.index',
+        'create' => 'news.create',
+        'edit' => 'news.edit',
+        'show' => 'news.show',
     ];
 
     protected $redirectsKey = 'news';
-
-    /**
-     * [__construct description]
-     *
-     * @return  null
-     */
-    public function __construct()
-    {
-        $this->loadViewsFrom(resource_path().'/views', 'news');
-
-        parent::__construct();
-    }
 
     /**
      * Show the index of all content with content type 'news'

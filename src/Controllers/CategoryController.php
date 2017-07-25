@@ -28,26 +28,13 @@ class CategoryController extends ContentController
      * @var [type]
      */
     protected $views = [
-        'index' => 'index',
-        'create' => 'create',
-        'edit' => 'edit',
-        'show' => 'index',
+        'index' => 'category.index',
+        'create' => 'category.create',
+        'edit' => 'category.edit',
+        'show' => 'category.index',
     ];
 
     protected $redirectsKey = 'news.category';
-
-
-    /**
-     * [__construct description]
-     *
-     * @return  null
-     */
-    public function __construct()
-    {
-        $this->loadViewsFrom(resource_path().'/views', 'category');
-
-        parent::__construct();
-    }
 
     /**
      * Show the index of all content with content type 'webpage'
