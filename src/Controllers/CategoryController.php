@@ -37,6 +37,18 @@ class CategoryController extends ContentController
     protected $redirectsKey = 'news.category';
 
     /**
+     * [__construct description]
+     *
+     * @return  null
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->names['plural'] = 'news';
+    }
+
+    /**
      * Show the index of all content with content type 'webpage'
      *
      * @return \Illuminate\Http\Response
