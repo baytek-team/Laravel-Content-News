@@ -3,7 +3,7 @@ namespace Baytek\Laravel\Content\Types\News\Seeders;
 
 use Baytek\Laravel\Content\Seeder;
 
-class EventSeeder extends Seeder
+class NewsSeeder extends Seeder
 {
     private $data = [
         [

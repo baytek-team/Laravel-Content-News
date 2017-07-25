@@ -2,30 +2,20 @@
 
 @section('page.head.menu')
     <div class="ui secondary menu">
-        @if(Auth::user()->can('Create Event'))
+        @if(Auth::user()->can('Create News'))
             <a class="item" href="{{ route('news.create') }}">
-                <i class="add icon"></i>{{ ___('Add Event') }}
+                <i class="add icon"></i>{{ ___('Add News') }}
             </a>
         @endif
     </div>
 @endsection
 
 @section('content')
-<div class="ui text menu">
-    <div class="header item">
-        <i class="filter icon"></i>
-        {{ ___('Filter By') }}
-    </div>
-    <a class="item @if($filter && $filter == 'all') active @endif" href="{{ route('news.index') }}">{{ ___('All') }}</a>
-    <a class="item @if($filter && $filter == 'upcoming') active @endif" href="{{ route('news.upcoming') }}">{{ ___('Upcoming') }}</a>
-    <a class="item @if($filter && $filter == 'past') active @endif" href="{{ route('news.past') }}">{{ ___('Past') }}</a>
-    <a class="item @if($filter && $filter == 'featured') active @endif" href="{{ route('news.featured') }}">{{ ___('Featured') }}</a>
-</div>
 <table class="ui selectable table">
     <thead>
         <tr>
-            <th class="nine wide">{{ ___('Event Title') }}</th>
-            <th>{{ ___('Event Date') }}</th>
+            <th class="nine wide">{{ ___('News Title') }}</th>
+            <th>{{ ___('News Date') }}</th>
             <th class="center aligned collapsing">{{ ___('Actions') }}</th>
         </tr>
     </thead>
