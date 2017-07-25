@@ -24,6 +24,11 @@ class CategoryController extends ContentController
      */
     protected $viewPrefix = 'admin';
     /**
+     * Namespace from which to load the view
+     * @var string
+     */
+    protected $viewNamespace = 'news';
+    /**
      * List of views this content type uses
      * @var [type]
      */
@@ -35,18 +40,6 @@ class CategoryController extends ContentController
     ];
 
     protected $redirectsKey = 'news.category';
-
-    /**
-     * [__construct description]
-     *
-     * @return  null
-     */
-    public function __construct()
-    {
-        parent::__construct();
-
-        $this->names['plural'] = 'news';
-    }
 
     /**
      * Show the index of all content with content type 'webpage'
