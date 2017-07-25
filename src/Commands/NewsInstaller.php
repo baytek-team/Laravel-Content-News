@@ -44,7 +44,7 @@ class NewsInstaller extends Installer
     public function shouldSeed()
     {
         $relevantRecords = [
-            'event',
+            'news',
         ];
 
         return Content::whereIn('key', $relevantRecords)->count() === 0;
