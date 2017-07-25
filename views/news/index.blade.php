@@ -20,13 +20,13 @@
         </tr>
     </thead>
     <tbody>
-        @forelse($news as $news)
-            <tr class="nine wide" data-news-id="{{ $news->id }}">
-                <td>{{ str_limit($news->title, 100) }}</td>
-                <td>{{ (new Carbon\Carbon($news->getMeta('news_date')))->formatLocalized(___('%B %e, %Y')) }}</td>
+        @forelse($news as $item)
+            <tr class="nine wide" data-news-id="{{ $item->id }}">
+                <td>{{ str_limit($item->title, 100) }}</td>
+                <td>{{ (new Carbon\Carbon($item->getMeta('news_date')))->formatLocalized(___('%B %e, %Y')) }}</td>
                 <td class="right aligned collapsing">
                     <div class="ui compact text menu">
-                        <a class="item" href="{{ route('news.edit', $news->id) }}">
+                        <a class="item" href="{{ route('news.edit', $item->id) }}">
                             <i class="pencil icon"></i>
                             {{ ___('Edit') }}
                         </a>
@@ -37,7 +37,7 @@
                             'confirm' => 'Are you sure you want to delete this news?</br>This cannot be undone.',
                             'class' => 'item action',
                             'prepend' => '<i class="delete icon"></i>',
-                            'model' => $news,
+                            'model' => $item,
                         ])
                     </div>
                 </td>
