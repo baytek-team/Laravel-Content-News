@@ -1,17 +1,17 @@
 <div class="two fields">
     <div class="twelve wide field{{ ($errors->has('title') || $errors->has('key')) ? ' error' : '' }}">
         <label for="title">{{ ___('Title') }}</label>
-        <input type="text" id="title" name="title" placeholder="{{ ___('Title') }}" value="{{ old('title', $event->title) }}">
+        <input type="text" id="title" name="title" placeholder="{{ ___('Title') }}" value="{{ old('title', $news->title) }}">
     </div>
-    <div class="four wide field{{ ($errors->has('event_date') || $errors->has('key')) ? ' error' : '' }}">
-        <label for="event_date">{{ ___('News Date') }}</label>
-        <input class="ui daterangepicker" type="text" id="event_date" name="event_date" placeholder="{{ ___('News Date') }}" value="{{ old('event_date', $event->eventDate->format('Y-m-d h:m A')) }}">
+    <div class="four wide field{{ ($errors->has('news_date') || $errors->has('key')) ? ' error' : '' }}">
+        <label for="news_date">{{ ___('News Date') }}</label>
+        <input class="ui daterangepicker" type="text" id="news_date" name="news_date" placeholder="{{ ___('News Date') }}" value="{{ old('news_date', $news->newsDate->format('Y-m-d h:m A')) }}">
     </div>
 </div>
 
 <div class="field{{ $errors->has('content') ? ' error' : '' }}">
     <label for="content">{{ ___('Content') }}</label>
-    <textarea id="content" name="content" class="editor" placeholder="{{ ___('Content') }}">{{ old('content', $event->content) }}</textarea>
+    <textarea id="content" name="content" class="editor" placeholder="{{ ___('Content') }}">{{ old('content', $news->content) }}</textarea>
 </div>
 
 <div class="field">
