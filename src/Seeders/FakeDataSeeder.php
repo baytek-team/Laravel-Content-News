@@ -56,6 +56,7 @@ class FakeDataSeeder extends Seeder
 
             //Add relationships
             $news->saveRelation('content-type', $content_type);
+            $news->saveRelation('parent-id', $content_type);
             $news->saveRelation('category', $category);
 
             //Add metadata
