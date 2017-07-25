@@ -59,8 +59,7 @@ class NewsContentServiceProvider extends AuthServiceProvider
         $this->registerSettings($this->settings);
 
         // Set the local load path for views
-        $this->loadViewsFrom(__DIR__.'/../views/news/news', 'news');
-        $this->loadViewsFrom(__DIR__.'/../views/news/category', 'news-category');
+        $this->loadViewsFrom(__DIR__.'/../views/news', 'news');
 
         // Publish routes to the App
         $this->publishes([
