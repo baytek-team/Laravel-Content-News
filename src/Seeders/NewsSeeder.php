@@ -22,7 +22,7 @@ class EventSeeder extends Seeder
                 ['parent-id', 'content-type'],
             ]
         ],
-    ]
+    ];
 
     /**
      * Run the database seeds.
