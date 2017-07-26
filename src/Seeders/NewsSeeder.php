@@ -9,7 +9,7 @@ class NewsSeeder extends Seeder
         [
             'key' => 'news',
             'title' => 'News',
-            'content' => Baytek\Laravel\Content\Types\News\Models\News::class,
+            'content' => \Baytek\Laravel\Content\Types\News\Models\News::class,
             'relations' => [
                 ['parent-id', 'content-type']
             ]
@@ -17,7 +17,7 @@ class NewsSeeder extends Seeder
         [
             'key' => 'news-category',
             'title' => 'Category',
-            'content' => Baytek\Laravel\Content\Types\News\Models\Category::class,
+            'content' => \Baytek\Laravel\Content\Types\News\Models\Category::class,
             'relations' => [
                 ['parent-id', 'content-type'],
             ]
