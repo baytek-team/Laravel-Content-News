@@ -6,17 +6,14 @@ use Baytek\Laravel\Content\Types\News\Models\News;
 use Baytek\Laravel\Content\Types\News\Scopes\NewsScope;
 use Baytek\Laravel\Content\Types\News\Scopes\ApprovedNewsScope;
 
-use App\Http\Controllers\Controller;
+use Baytek\Laravel\Content\Controllers\ApiController;
+
 use Illuminate\Http\Request;
 
 use Carbon\Carbon;
 
-class NewsController extends Controller
+class NewsController extends ApiController
 {
-    public function __construct()
-    {
-    }
-
     public function all()
     {
         return News::paginate(5);
