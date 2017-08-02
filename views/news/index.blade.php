@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-<table class="ui selectable table">
+<table class="ui selectable very basic table">
     <thead>
         <tr>
             <th class="nine wide">{{ ___('News Title') }}</th>

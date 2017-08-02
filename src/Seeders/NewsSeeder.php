@@ -22,6 +22,30 @@ class NewsSeeder extends Seeder
                 ['parent-id', 'content-type'],
             ]
         ],
+        [
+            'key' => 'news-menu',
+            'title' => 'News Navigation Menu',
+            'content' => '',
+            'relations' => [
+                ['content-type', 'menu'],
+                ['parent-id', 'admin-menu'],
+            ]
+        ],
+        [
+            'key' => 'news-index',
+            'title' => 'News',
+            'content' => 'news.index',
+            'meta' => [
+                'type' => 'route',
+                'class' => 'item',
+                'append' => '</span>',
+                'prepend' => '<i class="newspaper left icon"></i><span class="collapseable-text">',
+            ],
+            'relations' => [
+                ['content-type', 'menu-item'],
+                ['parent-id', 'news-menu'],
+            ]
+        ]
     ];
 
     /**
