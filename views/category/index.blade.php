@@ -1,10 +1,17 @@
 @extends('news::category.template')
 
 @section('page.head.menu')
-    <div class="ui secondary menu">
-        <a class="item" href="{{ route('news.category.create') }}">
-            <i class="add icon"></i>{{ ___('Add Category') }}
-        </a>
+    <div class="ui secondary contextual menu">
+        <div class="item">
+            <a class="ui button" href="{{ route('news.index') }}">
+                {{-- <i class="back icon"></i> --}}
+                {{ ___('Back to News') }}
+            </a>
+            &nbsp;
+            <a class="ui primary button" href="{{ route('news.category.create') }}">
+                <i class="add icon"></i>{{ ___('Add Category') }}
+            </a>
+        </div>
     </div>
 @endsection
 
@@ -24,9 +31,9 @@
                         <div class="ui compact text menu">
                             <a class="item" href="{{ route('news.category.edit', $category->id) }}">
                                 <i class="pencil icon"></i>
-                                {{ ___('Edit') }}
+                                {{-- {{ ___('Edit') }} --}}
                             </a>
-                            @button(___('Delete'), [
+                            @button('', [
                                 'method' => 'delete',
                                 'location' => 'news.category.destroy',
                                 'type' => 'route',

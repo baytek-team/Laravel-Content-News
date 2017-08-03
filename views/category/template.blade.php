@@ -2,9 +2,9 @@
 
 @section('page.head.header')
     <h1 class="ui header">
-        <i class="calendar icon"></i>
+        <i class="newspaper icon"></i>
         <div class="content">
-            {{ ___('Categories') }}
+            {{ ___('News Categories') }}
             <div class="sub header">{{ ___('Manage the news categories.') }}</div>
         </div>
     </h1>

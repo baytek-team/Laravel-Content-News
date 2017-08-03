@@ -4,6 +4,10 @@
     <div class="ui secondary contextual menu">
         @if(Auth::user()->can('Create News'))
             <div class="item">
+                <a class="ui button" href="{{ route('news.category.index') }}">
+                    <i class="add icon"></i>{{ ___('News Categories') }}
+                </a>
+                &nbsp;
                 <a class="ui primary button" href="{{ route('news.create') }}">
                     <i class="add icon"></i>{{ ___('Add News') }}
                 </a>
@@ -28,11 +32,12 @@
                     <td>{{ (new Carbon\Carbon($item->getMeta('news_date')))->formatLocalized(___('%B %e, %Y')) }}</td>
                     <td class="right aligned collapsing">
                         <div class="ui compact text menu">
+
                             <a class="item" href="{{ route('news.edit', $item->id) }}">
                                 <i class="pencil icon"></i>
-                                {{ ___('Edit') }}
+                                {{-- {{ ___('Edit') }} --}}
                             </a>
-                            @button(___('Delete'), [
+                            @button('', [
                                 'method' => 'delete',
                                 'location' => 'news.destroy',
                                 'type' => 'route',
