@@ -22,7 +22,7 @@ class FakeDataSeeder extends Seeder
 
     protected function generateNewsCategories($total = 10)
     {
-        $content_type = content('content-type/news-category', false);
+        $content_type = content_id('content-type/news-category');
 
         foreach(range(1,$total) as $index) {
             $category = (factory(Category::class)->make());
@@ -41,7 +41,7 @@ class FakeDataSeeder extends Seeder
     {
         //Generate news
         //Assign them to a category
-        $content_type = content('content-type/news', false);
+        $content_type = content_id('content-type/news');
         $categories = Category::all();
 
         $earliest_date = time() - (5*365*24*60*60); //5 years ago

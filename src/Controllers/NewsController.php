@@ -89,7 +89,7 @@ class NewsController extends ContentController
 
         $news = parent::contentStore($request);
         $news->saveRelation('category', $request->category);
-        $news->saveRelation('parent-id', content('content-type/news', false));
+        $news->saveRelation('parent-id', content_id('content-type/news'));
         $news->saveMetadata('news_date', (new Carbon($request->news_date))->toDateTimeString());
         $news->onBit(News::APPROVED)->update();
 
