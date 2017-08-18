@@ -40,6 +40,7 @@ class NewsSeeder extends Seeder
                 'class' => 'item',
                 'append' => '</span>',
                 'prepend' => '<i class="newspaper left icon"></i><span class="collapseable-text">',
+                'permission' => 'View News'
             ],
             'relations' => [
                 ['content-type', 'menu-item'],

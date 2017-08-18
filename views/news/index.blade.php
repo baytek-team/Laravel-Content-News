@@ -2,17 +2,19 @@
 
 @section('page.head.menu')
     <div class="ui secondary contextual menu">
-        @if(Auth::user()->can('Create News'))
-            <div class="item">
-                <a class="ui button" href="{{ route('news.category.index') }}">
-                    <i class="add icon"></i>{{ ___('News Categories') }}
-                </a>
-                &nbsp;
-                <a class="ui primary button" href="{{ route('news.create') }}">
-                    <i class="add icon"></i>{{ ___('Add News') }}
-                </a>
-            </div>
-        @endif
+        <div class="item">
+            @can('View News Category')
+            <a class="ui button" href="{{ route('news.category.index') }}">
+                <i class="add icon"></i>{{ ___('News Categories') }}
+            </a>
+            &nbsp;
+            @endcan
+            @can('Create News')
+            <a class="ui primary button" href="{{ route('news.create') }}">
+                <i class="add icon"></i>{{ ___('Add News') }}
+            </a>
+            @endcan
+        </div>
     </div>
 @endsection
 
@@ -33,11 +35,13 @@
                         <td>{{ (new Carbon\Carbon($item->getMeta('news_date')))->formatLocalized(___('%B %e, %Y')) }}</td>
                         <td class="right aligned collapsing">
                             <div class="ui compact text menu">
-
+                                @can('Update News')
                                 <a class="item" href="{{ route('news.edit', $item->id) }}">
                                     <i class="pencil icon"></i>
                                     {{-- {{ ___('Edit') }} --}}
                                 </a>
+                                @endcan
+                                @can('Delete News')
                                 @button('', [
                                     'method' => 'delete',
                                     'location' => 'news.destroy',
@@ -47,6 +51,7 @@
                                     'prepend' => '<i class="delete icon"></i>',
                                     'model' => $item,
                                 ])
+                                @endcan
                             </div>
                         </td>
                     </tr>
