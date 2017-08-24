@@ -53,7 +53,7 @@ class News extends Content
      */
     public function scopeDeleted($query)
     {
-        return $query->withStatus('contents', News::DELETED);
+        return $query->withStatus(News::DELETED);
     }
 
     public function categoryID()

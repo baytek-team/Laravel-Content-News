@@ -49,10 +49,10 @@ class CategoryController extends ContentController
     public function index()
     {
         $this->viewData['index'] = [
-            'categories' => Category::withoutGlobalScopes()
-                ->childrenOf('news-category')
-                ->orderBy('title', 'asc')
-                ->paginate(),
+            'categories' => content('content-type/news-category')
+                            ->children()
+                            ->orderBy('title', 'asc')
+                            ->paginate(),
         ];
 
         return parent::contentIndex();
@@ -66,6 +66,8 @@ class CategoryController extends ContentController
      */
     public function show($id = null)
     {
+        dd(content($id)->children);
+
         $this->viewData['index'] = [
             'categories' => Category::withoutGlobalScopes()
                 ->childrenOfType(Category::find($id)->key, 'news-category')
