@@ -6,6 +6,7 @@ use Baytek\Laravel\Content\Types\News\Models\News;
 use Baytek\Laravel\Content\Types\News\Models\Category;
 use Baytek\Laravel\Content\Types\News\Requests\NewsRequest;
 use Baytek\Laravel\Content\Types\News\Scopes\ApprovedNewsScope;
+use Baytek\Laravel\Content\Types\News\Events\NewsPublished;
 
 use Baytek\Laravel\Content\Controllers\ContentController;
 use Baytek\Laravel\Content\Events\ContentEvent;
@@ -95,6 +96,9 @@ class NewsController extends ContentController
 
         //ContentEvent required here, otherwise the parent id isn't properly accessible
         event(new ContentEvent($news));
+
+        //Publish event
+        event(new NewsPublished($news));
 
         return redirect(route('news.edit', $news->id));
     }
