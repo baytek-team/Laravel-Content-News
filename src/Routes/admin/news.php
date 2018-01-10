@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['as' => 'news.'], function () {
+Route::group(['as' => 'news.', 'prefix' => 'news'], function () {
     Route::resource('category', CategoryController::class);
 });
 
