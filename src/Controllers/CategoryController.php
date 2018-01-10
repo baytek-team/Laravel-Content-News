@@ -133,4 +133,18 @@ class CategoryController extends ContentController
         return parent::contentEdit($id);
     }
 
+    /**
+     * Destroy a news category
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $category = $this->bound($id);
+
+        $category->offBit(Category::APPROVED)->onBit(Category::DELETED)->update();
+
+        return parent::contentDestroy($id);
+    }
+
 }
